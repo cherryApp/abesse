@@ -1,0 +1,7 @@
+<ul class="nav nav-pills">
+    <li *ngFor="let link of links" class="nav-item">
+        <a class="nav-link" [routerLink]="link.href" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" href="#">
+        {{ link.title }}
+    </a>
+    </li>
+</ul>
