@@ -11,6 +11,7 @@ import { AfterviewComponent } from './page/afterview/afterview.component';
 import { OndestroyComponent } from './page/ondestroy/ondestroy.component';
 import { NavComponent } from './common/nav/nav.component';
 import { HomeComponent } from './page/home/home.component';
+import { ChangeChildComponent } from './common/change-child/change-child.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeComponent } from './page/home/home.component';
     AfterviewComponent,
     OndestroyComponent,
     NavComponent,
-    HomeComponent
+    HomeComponent,
+    ChangeChildComponent
   ],
   imports: [
     BrowserModule,

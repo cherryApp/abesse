@@ -1,1 +1,20 @@
-<p>onchanges works!</p>
+<h2>OnChanges</h2>
+<dl class="row">
+    <dt class="col-sm-2">Leírás</dt>
+    <dd class="col-sm-10">Akkor fut le, amikor az Angular (újra)beállítja az @Input() tulajdonságokat. A metódus megkapja a jelenlegi és a korábbi adatokat is egy SimpleChanges objektumban.<br> Az ngOnInit előtt hívja meg az Angular, vagy amikor egy vagy több @Input tulajdonság
+        megváltozik.
+    </dd>
+</dl>
+
+<h3>My changes</h3>
+<ul class="list-group mt-3">
+    <li *ngFor="let row of changeLog" class="list-group-item">
+        {{ row }}
+    </li>
+</ul>
+
+<h3>Child changes</h3>
+<button (click)="increase()" class="btn btn-info">
+  increase
+</button>
+<app-change-child [counter]="counterNumber" [counterObject]="counterObject"></app-change-child>
