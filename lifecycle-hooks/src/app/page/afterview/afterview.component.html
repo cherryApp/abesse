@@ -9,3 +9,13 @@
         <br> Lefut az ngAfterViewInit() után és minden azt követő ngAfterContentChecked() után is.
     </dd>
 </dl>
+
+<div class="parent">
+    <h2>AfterView</h2>
+
+    <app-after-view *ngIf="show"></app-after-view>
+
+    <h4>-- AfterView Logs --</h4>
+    <p><button (click)="reset()">Reset</button></p>
+    <div *ngFor="let msg of logger.logs">{{msg}}</div>
+</div>

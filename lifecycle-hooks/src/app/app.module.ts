@@ -8,7 +8,7 @@ import { OnchangesComponent } from './page/onchanges/onchanges.component';
 import { OninitComponent } from './page/oninit/oninit.component';
 import { DocheckComponent } from './page/docheck/docheck.component';
 import { AftercontentComponent } from './page/aftercontent/aftercontent.component';
-import { AfterviewComponent } from './page/afterview/afterview.component';
+import { AfterviewComponent, AfterViewComponent, ChildViewComponent } from './page/afterview/afterview.component';
 import { OndestroyComponent } from './page/ondestroy/ondestroy.component';
 import { NavComponent } from './common/nav/nav.component';
 import { HomeComponent } from './page/home/home.component';
@@ -24,6 +24,8 @@ import { AfterContentChildComponent } from './common/after-content-child/after-c
     DocheckComponent,
     AftercontentComponent,
     AfterviewComponent,
+    AfterViewComponent,
+    ChildViewComponent,
     OndestroyComponent,
     NavComponent,
     HomeComponent,
