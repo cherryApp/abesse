@@ -14,6 +14,7 @@ import { NavComponent } from './common/nav/nav.component';
 import { HomeComponent } from './page/home/home.component';
 import { ChangeChildComponent } from './common/change-child/change-child.component';
 import { DocheckChildComponent } from './common/docheck-child/docheck-child.component';
+import { AfterContentChildComponent } from './common/after-content-child/after-content-child.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DocheckChildComponent } from './common/docheck-child/docheck-child.comp
     NavComponent,
     HomeComponent,
     ChangeChildComponent,
-    DocheckChildComponent
+    DocheckChildComponent,
+    AfterContentChildComponent,
   ],
   imports: [
     BrowserModule,
