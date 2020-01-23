@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of, Observable } from 'rxjs';
+import { of, Observable, interval } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +7,7 @@ import { of, Observable } from 'rxjs';
 export class TestService {
 
   dataSource: Observable<any> = of(42);
+  intervalSource: Observable<number> = interval(1000);
 
   constructor() { }
 }
