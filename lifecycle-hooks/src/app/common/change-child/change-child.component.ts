@@ -38,7 +38,11 @@ export class ChangeChildComponent implements OnInit {
   // tslint:disable-next-line: use-lifecycle-interface
   ngDoCheck() {
     const diff = this.objectDiffer.diff(this.counterObject);
-    console.log(diff);
+    // tslint:disable-next-line: no-string-literal
+    if (diff['isDirty']) {
+      this.changeLog.push(`ObjectChange: ${JSON.stringify(this.counterObject, null, 4)}`);
+      this.objectDiffer = this.differs.find(this.counterObject).create();
+    }
   }
 
 }
