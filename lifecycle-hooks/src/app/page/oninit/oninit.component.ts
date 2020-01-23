@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { TestService } from 'src/app/service/test.service';
 
 @Component({
   selector: 'app-oninit',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OninitComponent implements OnInit {
 
-  constructor() { }
+  dataSubscription: Subscription;
+  realData: any;
+
+  constructor(
+    private testService: TestService
+  ) { }
 
   ngOnInit() {
+    this.dataSubscription = this.testService.dataSource.subscribe(
+      data => this.realData = data
+    );
   }
 
 }

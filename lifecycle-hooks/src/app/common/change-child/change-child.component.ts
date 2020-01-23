@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, SimpleChanges, KeyValueDiffer, KeyValueDiffers } from '@angular/core';
+// tslint:disable: use-lifecycle-interface
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 
-// tslint:disable-next-line: no-conflicting-lifecycle
 @Component({
   selector: 'app-change-child',
   templateUrl: './change-child.component.html',
@@ -11,37 +11,15 @@ export class ChangeChildComponent implements OnInit {
   @Input() counter: number;
   @Input() counterObject: any;
   changeLog: string[] = [];
-  private objectDiffer: KeyValueDiffer<any, any>;
 
-  constructor(
-    private differs: KeyValueDiffers
-  ) {
+  constructor() {}
 
-  }
+  ngOnInit() {}
 
-  ngOnInit() {
-    this.objectDiffer.diff(changes => {
-      console.log(changes);
-    });
-  }
-
-  // tslint:disable-next-line: use-lifecycle-interface
   ngOnChanges(changes: SimpleChanges) {
-    this.objectDiffer = this.differs.find(this.counterObject).create();
-
     console.log(changes);
     for (const propName of Object.keys(changes)) {
-      this.changeLog.push(`SimpleChange: ${JSON.stringify(changes, null, 4)}`);
-    }
-  }
-
-  // tslint:disable-next-line: use-lifecycle-interface
-  ngDoCheck() {
-    const diff = this.objectDiffer.diff(this.counterObject);
-    // tslint:disable-next-line: no-string-literal
-    if (diff['isDirty']) {
-      this.changeLog.push(`ObjectChange: ${JSON.stringify(this.counterObject, null, 4)}`);
-      this.objectDiffer = this.differs.find(this.counterObject).create();
+      this.changeLog.push(`SimpleChange (${propName}): ${JSON.stringify(changes[propName], null, 4)}`);
     }
   }
 

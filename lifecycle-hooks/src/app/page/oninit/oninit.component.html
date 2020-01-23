@@ -4,5 +4,17 @@
     <dd class="col-sm-10">
         Inicializálja a direktívát/komponenst, miután az Angular először megjeleníti az adatkötött tulajdonságokat és beállítja az @Input változókat.
         <br> Egyszer fut le, mindig az ngOnChanges() után.
+        <br> Cél, hogy a konstruktor minél "butább" legyen:
+        <br>
+        <a href="http://misko.hevery.com/code-reviewers-guide/flaw-constructor-does-real-work/" target="blank">
+          cikk a témában
+        </a>
     </dd>
 </dl>
+
+<h3>Példa</h3>
+<div class="row">
+    <div class="col-12 col-md-6">
+        <img style="max-width: 100%" src="assets/oninit_sample.JPG" alt="oninit sample code">
+    </div>
+</div>
