@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { OndestroyComponent } from './page/ondestroy/ondestroy.component';
 import { NavComponent } from './common/nav/nav.component';
 import { HomeComponent } from './page/home/home.component';
 import { ChangeChildComponent } from './common/change-child/change-child.component';
+import { DocheckChildComponent } from './common/docheck-child/docheck-child.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { ChangeChildComponent } from './common/change-child/change-child.compone
     OndestroyComponent,
     NavComponent,
     HomeComponent,
-    ChangeChildComponent
+    ChangeChildComponent,
+    DocheckChildComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
