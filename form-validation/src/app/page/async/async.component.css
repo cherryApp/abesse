@@ -1,0 +1,7 @@
+.fa-circle-o-notch {
+  animation: loader 1s linear infinite;
+}
+
+@keyframes loader {
+  100% { transform: rotate(360deg); }
+}

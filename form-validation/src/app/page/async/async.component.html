@@ -1,1 +1,53 @@
-<p>async works!</p>
+<div class="row">
+  <div class="col-12 col-md-6 offset-md-3">
+    <form
+      #regForm="ngForm"
+      (ngSubmit)="onSubmit(regForm)"
+      class="form"
+    >
+      <div class="form-group">
+        <label>Name</label>
+        <input
+          name="name"
+          [(ngModel)]="user.name"
+          required
+          pattern="^[A-Za-z ]{5,25}$"
+          type="text"
+          class="form-control"
+        >
+        <p
+          *ngIf="regForm.form.controls.name?.invalid && regForm.form.controls.name?.touched"
+          class="text-danger text-sm"
+        >Name is required and must be 5-25 chars.</p>
+      </div>
+      <div class="form-group">
+        <label>Email <i
+            *ngIf="emailInput.pending"
+            class="fa fa-circle-o-notch"
+            aria-hidden="true"
+          ></i>
+        </label>
+        <input
+          #emailInput="ngModel"
+          appEmailExistsValidator
+          name="email"
+          [(ngModel)]="user.email"
+          required
+          email
+          type="email"
+          class="form-control"
+        >
+        <p
+          *ngIf="emailInput.invalid && emailInput.touched"
+          class="text-danger text-sm"
+        >Valid email is required.</p>
+      </div>
+      <button
+        [disabled]="regForm.form.invalid"
+        type="submit"
+        class="btn btn-primary mt-3 mb-3"
+      > register </button>
+      <p> Actual values: {{ regForm.value | json }} </p>
+    </form>
+  </div>
+</div>
