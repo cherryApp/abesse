@@ -10,8 +10,8 @@ export class NavComponent implements OnInit {
   links: {title: string, href: string}[] = [
     {title: 'Home', href: '/'},
     {title: 'Basic', href: '/base'},
-    {title: 'Asynchronous', href: '/async'},
     {title: 'Cross Field', href: '/cross-field'},
+    {title: 'Asynchronous', href: '/async'},
     {title: 'Built in', href: '/built-in'},
   ];
 
