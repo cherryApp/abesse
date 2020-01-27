@@ -1,0 +1,13 @@
+<ul class="nav nav-pills mb-3 mt-3">
+  <li
+    *ngFor="let link of links"
+    class="nav-item"
+  >
+    <a
+      [routerLink]="link.href"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}"
+      class="nav-link"
+    >{{ link.title }}</a>
+  </li>
+</ul>
