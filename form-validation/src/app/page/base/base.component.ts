@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/model/user';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-base',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseComponent implements OnInit {
 
+  user: User = new User();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit(ngForm: NgForm): void {
+    if (ngForm.invalid) {
+      return;
+    }
+    console.log(ngForm.form.value);
   }
 
 }
