@@ -10,6 +10,7 @@ import { AsyncComponent } from './page/async/async.component';
 import { BuiltInComponent } from './page/built-in/built-in.component';
 import { HomeComponent } from './page/home/home.component';
 import { NavComponent } from './common/nav/nav.component';
+import { RangeValidatorDirective } from './common/validator/range-validator.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NavComponent } from './common/nav/nav.component';
     BuiltInComponent,
     HomeComponent,
     NavComponent,
+    RangeValidatorDirective,
   ],
   imports: [
     BrowserModule,

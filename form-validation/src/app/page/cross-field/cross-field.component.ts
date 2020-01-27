@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-cross-field',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrossFieldComponent implements OnInit {
 
+  filter: {[propname: string]: string | number} = {
+    name: '',
+    minPrice: 0,
+    maxPrice: 100
+  };
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit(ngForm: NgForm): void {
+    if (ngForm.invalid) {
+      return;
+    }
+
+    console.log(ngForm.value);
   }
 
 }
