@@ -1,13 +1,24 @@
 <div class="row">
   <div class="col-12 text-center">
-    <form class="form-signin mt-5">
+    <form
+      #loginForm="ngForm"
+      (ngSubmit)="onLogin(loginForm)"
+      class="form-signin mt-5"
+    >
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <p
+        *ngIf="emailField.invalid && emailField.touched"
+        class="error-message"
+      > Please type a valid email. </p>
       <label
         for="inputEmail"
         class="sr-only"
       >Email address</label>
       <input
         type="email"
+        name="email"
+        [(ngModel)]="user.email"
+        #emailField="ngModel"
         email
         id="inputEmail"
         class="form-control"
@@ -22,16 +33,19 @@
       <input
         type="password"
         id="inputPassword"
+        name="password"
+        [(ngModel)]="user.password"
+        #passwordField
         class="form-control"
         placeholder="Password"
         required
       >
-
       <button
         class="btn btn-lg btn-primary btn-block"
         type="submit"
+        [disabled]="loginForm.invalid"
       >Sign in</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
-      </form>
+    </form>
   </div>
 </div>
