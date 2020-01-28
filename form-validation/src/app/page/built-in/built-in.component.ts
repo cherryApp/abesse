@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-built-in',
@@ -10,6 +11,14 @@ export class BuiltInComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit(ngForm: NgForm): void {
+    if (ngForm.invalid) {
+      return;
+    }
+
+    console.log(ngForm.value);
   }
 
 }

@@ -1,1 +1,79 @@
-<p>built-in works!</p>
+<div class="row">
+  <div class="col-12 col-md-6 offset-md-3">
+    <form
+      #regForm="ngForm"
+      (ngSubmit)="onSubmit(regForm)"
+      class="form"
+    >
+      <div class="form-group">
+        <label>Name</label>
+        <input
+          name="name"
+          [(ngModel)]="user.name"
+          required
+          pattern="^[A-Za-z ]{5,25}$"
+          type="text"
+          class="form-control"
+        >
+        <p
+          *ngIf="regForm.form.controls.name?.invalid && regForm.form.controls.name?.touched"
+          class="text-danger text-sm"
+        >Name is required and must be 5-25 chars.</p>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          #emailInput="ngModel"
+          name="email"
+          [(ngModel)]="user.email"
+          required
+          email
+          type="email"
+          class="form-control"
+        >
+        <p
+          *ngIf="emailInput.invalid && emailInput.touched"
+          class="text-danger text-sm"
+        >Valid email is required.</p>
+      </div>
+      <div class="form-group">
+        <label>Where are you came from?</label>
+        <select
+          name="cameFrom"
+          [(ngModel)]="user.cameFrom"
+          required
+          class="form-control"
+        >
+          <option
+            value=""
+            [selected]="user.cameFrom === ''"
+          >choose one</option>
+          <option value="Other">Other</option>
+          <option value="Facebook">Facebook</option>
+          <option value="Google">Google</option>
+        </select>
+      </div>
+      <div class="form-check">
+        <input
+          id="newsletter-checkbox"
+          name="newsLetter"
+          [(ngModel)]="user.newsLetter"
+          type="checkbox"
+          class="form-check-input"
+        >
+        <label
+          for="newsletter-checkbox"
+          class="form-check-label"
+        >Newsletter</label>
+      </div>
+      <button
+        [disabled]="regForm.form.invalid"
+        type="submit"
+        class="btn btn-primary mt-3 mb-3"
+      > register </button>
+      <p>
+        Actual values: {{ regForm.value | json }}
+      </p>
+    </form>
+  </div>
+</div>
