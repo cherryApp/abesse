@@ -1,1 +1,21 @@
-<p>users works!</p>
+<div class="row">
+  <div class="col-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let col of cols">
+            {{ col.label }}
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let user of list$ | async">
+          <td *ngFor="let col of cols">
+            {{ user[col.key] }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
