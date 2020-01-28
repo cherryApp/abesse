@@ -1,0 +1,42 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <a
+    class="navbar-brand"
+    routerLink="/"
+  >UserManager</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div
+    class="collapse navbar-collapse"
+    id="navbarSupportedContent"
+  >
+    <ul class="navbar-nav mr-auto">
+      <li
+        *ngFor="let link of navigation"
+        class="nav-item"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+      >
+        <a
+          class="nav-link"
+          [routerLink]="link.href"
+        >{{ link.label }}</a>
+      </li>
+    </ul>
+    <ul class="my-2 my-lg-0 right-buttons">
+      <li>
+        <a routerLink="/login" class="btn btn-success">
+          <i class="fa fa-sign-in"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
