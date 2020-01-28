@@ -32,6 +32,7 @@
           appEmailExistsValidator
           name="email"
           [(ngModel)]="user.email"
+          [ngModelOptions]="{updateOn: 'blur'}"
           required
           email
           type="email"

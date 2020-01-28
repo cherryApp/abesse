@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AsyncValidator, AbstractControl, ValidationErrors } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { map, take, first } from 'rxjs/operators';
+import { map, take, first, debounceTime } from 'rxjs/operators';
 import { User } from '../model/user';
 import { of, Observable } from 'rxjs';
 
@@ -17,12 +17,12 @@ export class EmailValidatorService implements AsyncValidator {
   ) { }
 
   validate(ctrl: AbstractControl): Observable<ValidationErrors | null> {
-    const email = ctrl.get('email');
-    if (!email) {
+    const email = ctrl.value;
+    if (!ctrl || !email) {
       return of(null);
     }
 
-    return this.http.get<User[]>(`${this.serverUrl}?email=${email.value}`)
+    return this.http.get<User[]>(`${this.serverUrl}?email=${email}`)
       .pipe( map( data => data.length > 0 ? {emailExistsError: true} : null ))
       .pipe( first() );
   }

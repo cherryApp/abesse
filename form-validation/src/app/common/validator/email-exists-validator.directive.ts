@@ -2,6 +2,7 @@ import { Directive, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, AsyncValidator, AbstractControl, ValidationErrors, NG_ASYNC_VALIDATORS, Validator } from '@angular/forms';
 import { EmailValidatorService } from 'src/app/service/email-validator.service';
 import { Observable } from 'rxjs';
+import { debounce, debounceTime } from 'rxjs/operators';
 
 @Directive({
   selector: '[appEmailExistsValidator]',
