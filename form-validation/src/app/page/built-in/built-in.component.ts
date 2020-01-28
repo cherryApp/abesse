@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-built-in',
@@ -7,6 +8,8 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./built-in.component.css']
 })
 export class BuiltInComponent implements OnInit {
+
+  user: User = new User();
 
   constructor() { }
 

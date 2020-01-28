@@ -37,8 +37,45 @@
         >Valid email is required.</p>
       </div>
       <div class="form-group">
+        <label>Address</label>
+        <input
+          #addressInput="ngModel"
+          name="address"
+          [(ngModel)]="user.address"
+          required
+          minlength="5"
+          maxlength="100"
+          type="text"
+          class="form-control"
+        >
+        <p
+          *ngIf="addressInput.invalid && addressInput.touched"
+          class="text-danger text-sm"
+        >The address is required and must be 5-100 chars length.</p>
+      </div>
+
+      <div class="form-group">
+        <label>Work Experience</label>
+        <input
+          #workExp="ngModel"
+          name="workExp"
+          [(ngModel)]="user.workExperience"
+          required
+          min="3"
+          max="25"
+          type="number"
+          class="form-control"
+        >
+        <p
+          *ngIf="(workExp.value < 3 || workExp.value > 25)"
+          class="text-danger text-sm"
+        >The work experience must be in the 3-25 range.</p>
+      </div>
+
+      <div class="form-group">
         <label>Where are you came from?</label>
         <select
+          #cameFromSelect="ngModel"
           name="cameFrom"
           [(ngModel)]="user.cameFrom"
           required
@@ -52,7 +89,32 @@
           <option value="Facebook">Facebook</option>
           <option value="Google">Google</option>
         </select>
+        <p
+          *ngIf="cameFromSelect.invalid && cameFromSelect.touched"
+          class="text-danger text-sm"
+        >Please select a value.</p>
       </div>
+      <div class="form-check">
+        <input
+          #termsCheck="ngModel"
+          required
+          requiredTrue
+          id="conditions-checkbox"
+          name="conditions"
+          [(ngModel)]="user.conditions"
+          type="checkbox"
+          class="form-check-input"
+        >
+        <label
+          for="conditions-checkbox"
+          class="form-check-label"
+        >I agree with the terms and conditions</label>
+        <p
+          *ngIf="termsCheck.invalid"
+          class="text-danger text-sm"
+        >Please confirm the terms.</p>
+      </div>
+
       <div class="form-check">
         <input
           id="newsletter-checkbox"

@@ -5,6 +5,6 @@ export class User {
   address?: string;
   cameFrom: '' | 'Facebook' | 'Google' | 'Other' = '';
   workExperience?: number;
-  conditions?: boolean;
+  conditions = true;
   newsLetter = true;
 }
