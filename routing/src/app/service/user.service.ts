@@ -27,4 +27,9 @@ export class UserService {
       map( users => id ? users[0] : users )
     );
   }
+
+  update(user: User): Observable<User> {
+    const url = `${this.config.apiUrl}${this.entity}/${user.id}`;
+    return this.http.put<User>(url, user);
+  }
 }

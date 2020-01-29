@@ -22,4 +22,24 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
   }
 
+  update(user: User): void {
+    this.userService.update(user).toPromise().then(
+      userResponse => console.log(userResponse),
+      err => console.error(err)
+    );
+  }
+
+  updateAll() {
+    this.userService.get().toPromise().then(
+      async (users: User[]) => {
+        // tslint:disable-next-line: prefer-for-of
+        for (let i = 0; i < users.length; i++) {
+          users[i].password = 'test';
+          const res = await this.userService.update(users[i]).toPromise();
+          console.log(res);
+        }
+      }
+    );
+  }
+
 }
