@@ -32,12 +32,15 @@
       </li>
     </ul>
     <ul class="my-2 my-lg-0 right-buttons">
-      <li *ngIf="!loginStatus">
+      <li *ngIf="user" class="mr-1">
+        <span>Hi {{ user?.first_name }}!</span>
+      </li>
+      <li *ngIf="!user">
         <a routerLink="/login" class="btn btn-success">
           <i class="fa fa-sign-in"></i>
         </a>
       </li>
-      <li *ngIf="loginStatus">
+      <li *ngIf="user">
         <button (click)="onLogout()" class="btn btn-secondary">
           <i class="fa fa-sign-out"></i>
         </button>
