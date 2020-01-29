@@ -45,6 +45,11 @@
         type="submit"
         [disabled]="loginForm.invalid"
       >Sign in</button>
+
+      <div *ngIf="serverError && loginForm.submitted" class="alert alert-danger mt-3">
+        {{ serverError }}
+      </div>
+
       <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
     </form>
   </div>

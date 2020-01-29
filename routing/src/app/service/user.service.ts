@@ -28,6 +28,11 @@ export class UserService {
     );
   }
 
+  query(queryString: string): Observable<User | User[]> {
+    const url = `${this.config.apiUrl}${this.entity}?${queryString}`;
+    return this.http.get<User | User[]>(url);
+  }
+
   update(user: User): Observable<User> {
     const url = `${this.config.apiUrl}${this.entity}/${user.id}`;
     return this.http.put<User>(url, user);
