@@ -15,6 +15,7 @@ export class AuthService {
   loginUrl = `${this.config.apiUrl}login`;
   logoutUrl = `${this.config.apiUrl}logout`;
   currentUserSubject: BehaviorSubject<User> = new BehaviorSubject(null);
+  lastToken: string = null;
 
   constructor(
     private config: ConfigService,
@@ -39,14 +40,21 @@ export class AuthService {
     )
     .pipe( switchMap( response => {
       if (response.accessToken) {
+        this.lastToken = response.accessToken;
         return this.userService.query(`email=${loginData.email}`);
       }
       return of(null);
     }))
     .pipe(
-      tap(user => {
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        this.currentUserSubject.next(user);
+      tap( user => {
+        if (!user) {
+          localStorage.removeItem('currentUser');
+          this.currentUserSubject.next(null);
+        } else {
+          user[0].token = this.lastToken;
+          localStorage.setItem('currentUser', JSON.stringify(user[0]));
+          this.currentUserSubject.next(user[0]);
+        }
       })
     );
   }
