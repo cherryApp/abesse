@@ -5,6 +5,7 @@ import { Observable, Subject, BehaviorSubject, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { tap, switchMap } from 'rxjs/operators';
 import { UserService } from './user.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ export class AuthService {
     private config: ConfigService,
     private http: HttpClient,
     private userService: UserService,
+    private router: Router,
   ) {
     const localUser: string = localStorage.getItem('currentUser');
     this.currentUserSubject = new BehaviorSubject<User>(
@@ -52,5 +54,6 @@ export class AuthService {
   logout() {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+    this.router.navigate(['login']);
   }
 }
