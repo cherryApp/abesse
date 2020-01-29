@@ -11,6 +11,7 @@ import { UsersComponent } from './page/users/users.component';
 import { NavComponent } from './common/nav/nav.component';
 import { JwtInterceptorService } from './service/jwt-interceptor.service';
 import { ForbiddenComponent } from './page/forbidden/forbidden.component';
+import { UserEditComponent } from './page/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ForbiddenComponent } from './page/forbidden/forbidden.component';
     LoginComponent,
     UsersComponent,
     NavComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { UsersComponent } from './page/users/users.component';
 import { AuthGuardService as AuthGuard } from './service/auth-guard.service';
 import { RoleGuardService as RoleGuard } from './service/role-guard.service';
 import { ForbiddenComponent } from './page/forbidden/forbidden.component';
+import { UserEditComponent } from './page/user-edit/user-edit.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,14 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent,
+    canActivate: [AuthGuard, RoleGuard],
+    data: {
+      expectedRole: 2
+    }
+  },
+  {
+    path: 'user/edit/:id',
+    component: UserEditComponent,
     canActivate: [AuthGuard, RoleGuard],
     data: {
       expectedRole: 3

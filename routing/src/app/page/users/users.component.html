@@ -16,12 +16,12 @@
         <tr *ngFor="let user of list$ | async">
           <td *ngFor="let col of cols"> {{ user[col.key] }} </td>
           <td>
-            <button
-              (click)="update(user)"
+            <a
+              routerLink="/user/edit/{{user.id}}"
               class="btn btn-info"
             >
-              <i class="fa fa-refresh"></i>
-            </button>
+              <i class="fa fa-pencil"></i>
+          </a>
           </td>
         </tr>
       </tbody>

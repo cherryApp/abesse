@@ -23,9 +23,7 @@ export class UserService {
       url += `/${id}`;
     }
 
-    return this.http.get<User[]>(url).pipe(
-      map( users => id ? users[0] : users )
-    );
+    return this.http.get<User[]>(url);
   }
 
   query(queryString: string): Observable<User | User[]> {

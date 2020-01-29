@@ -2,11 +2,11 @@
   "users": [
     {
       "id": 1,
-      "first_name": "Sadye",
-      "last_name": "Eyden",
+      "first_name": "Charlie",
+      "last_name": "Firpo",
       "email": "seyden0@merriam-webster.com",
-      "password": "$2a$10$XXhXygMvG7aywPjK0vQcYubDglGzTRKvfyPVLskbhpeEywvtO0Eqa",
-      "role": 3
+      "password": "$2a$10$KKzAQMXlYJSq7VMlCKcJb.cIVpW4J22j482HLbglgpvTarJZUQc1C",
+      "role": "2"
     },
     {
       "id": 2,
