@@ -8,7 +8,7 @@
 - `npm i`
 - `npm i -g json-server-auth`
 - `json-server-auth ./server/users.json`
-- `ng server -o`
+- `ng serve -o`
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
 
