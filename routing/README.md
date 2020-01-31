@@ -2,6 +2,14 @@
 
 ## Test password is: 'test' (at all users)
 
+## Getting started:
+- `git clone https://github.com/cherryApp/abesse.git`
+- `cd abesse/routing`
+- `npm i`
+- `npm i -g json-server-auth`
+- `json-server-auth ./server/users.json`
+- `ng serve -o`
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
 
 ## Development server
