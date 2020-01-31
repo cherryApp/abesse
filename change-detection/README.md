@@ -6,6 +6,8 @@ Az a folyamat, amikor az Angular ellenőrzni a változásokat az összes nézetb
 ## Működése
 Az Angular egy fa struktúrát épít a nézetekből és minden változás esetén 
 bejárja azt felülről lefelé.
+  
+![Change cycle](src/assets/cd-cycle.gif)  
 
 ## Hasznos linkek
 - [ChangeDetectorRef class](https://angular.io/api/core/ChangeDetectorRef)
