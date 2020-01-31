@@ -1,0 +1,26 @@
+<h2>AfterContent (2)</h2>
+<dl class="row">
+    <dt class="col-sm-2">Leírás</dt>
+    <dd class="col-sm-10">
+        <b>ngAfterContentInit():</b> akkor fut le, amikor az Angular megjeleníti a külső tartalmat a komponens nézetében.
+        <br> Egyszer fut le, az első ngDoCheck() után.
+        <br>
+        <b>ngAfterContentChecked():</b> akkor fut le, amikor az Angular ellenőrzi a megjelenített tartalmat a komponensben vagy direktívában.
+        <br> Lefut egyszer az ngAfterContentInit() után és minden azt követő ngDoCheck() után is.
+    </dd>
+    <dt class="col-sm-2">Content projection</dt>
+    <dd class="col-sm-10">
+        Az az eljárás, amikor az Angular importálja a HTML tartalmat a komponensbe és beszúrja a sablonba a meghatározott helyre.
+    </dd>
+</dl>
+
+
+<h3>Gyermek komponens</h3>
+<app-after-content-child [name]="baseName"></app-after-content-child>
+
+<h3>My changes</h3>
+<ul class="list-group mt-3">
+    <li *ngFor="let row of changeLog" class="list-group-item">
+        {{ row }}
+    </li>
+</ul>

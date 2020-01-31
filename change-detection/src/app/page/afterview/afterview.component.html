@@ -1,0 +1,21 @@
+<h2>AfterView (2)</h2>
+<dl class="row">
+    <dt class="col-sm-2">Leírás</dt>
+    <dd class="col-sm-10">
+        <b>ngAfterViewInit():</b> azt kezeli, amikor az Angular inicializálja a komponensek nézeteit és a gyermek komponensek nézeteit is.
+        <br> Egyszer fut le, az első ngAfterContentChecked() után.
+        <br>
+        <b>ngAfterViewChecked():</b> amikor az Angular ellenőrzi a komponensek nézeteit és a gyermek komponensek nézeteit is.
+        <br> Lefut az ngAfterViewInit() után és minden azt követő ngAfterContentChecked() után is.
+    </dd>
+</dl>
+
+<div class="parent">
+    <h2>AfterView</h2>
+
+    <app-after-view *ngIf="show"></app-after-view>
+
+    <h4>-- AfterView Logs --</h4>
+    <p><button (click)="reset()">Reset</button></p>
+    <div *ngFor="let msg of logger.logs">{{msg}}</div>
+</div>
